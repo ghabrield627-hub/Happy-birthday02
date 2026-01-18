@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements will be created by JavaScript -->
+
+    <!-- Welcome Page -->
+    <div id="welcomePage" class="container page active">
+        <div class="welcome-page">
+            <div class="welcome-content">
+                <div class="birthday-cake">
+                    <div class="cake"></div>
+                    <div class="candle"></div>
+                    <div class="flame"></div>
+                </div>
+                
+                <h1 class="welcome-title">HAPPY BIRTHDAY</h1>
+                <p class="welcome-subtitle">🎉  Nemensia! 🎉<br>Ready for your special surprise?</p>
+                
+                <div id="heartAnimation" class="heart-animation" style="display: none;">
+                    <svg width="120" height="120" viewBox="0 0 100 100">
+                        <path d="M50,10 C30,10 15,25 15,45 C15,65 30,80 50,80 C70,80 85,65 85,45 C85,25 70,10 50,10 Z" 
+                              fill="none" stroke="#ff69b4" stroke-width="3"/>
+                    </svg>
+                </div>
+                
+                <div class="buttons-container">
+                    <button id="yesBtn" class="btn">YES! LET'S GO! 🎁</button>
+                    <button id="noBtn" class="btn btn-no">MAYBE LATER</button>
+                </div>
+                
+                <p style="margin-top: 25px; color: #ff6b9d; font-size: 1.1rem; opacity: 0.8;">
+                    Created by N2 for the most extraordinary people!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gifts Page -->
+    <div id="giftsPage" class="container page">
+        <div class="gifts-page">
+            <div class="page-header">
+                <div class="ornament">🎀</div>
+                <div class="ornament">🎀</div>
+            </div>
+            
+            <h2 class="section-title">Your Birthday Treasures 🎁</h2>
+            <p style="color: #ff6b9d; margin-bottom: 25px; font-size: 1.2rem;">Choose your surprise!</p>
+            
+            <div class="gifts-grid">
+                <div class="gift-card" onclick="showSong()">
+                    <div class="gift-emoji">🎵</div>
+                    <svg class="gift-icon" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M35,30 L45,30 L45,50 L35,50 Z" fill="#ff69b4"/>
+                        <path d="M30,35 L30,45" stroke="currentColor" stroke-width="2"/>
+                        <path d="M50,35 L50,45" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <p class="gift-label">Song</p>
+                    <p style="color: #ff6b9d; font-size: 0.9rem; margin-top: 5px;">Special Melody</p>
+                </div>
+                
+                <div class="gift-card" onclick="showLetter()">
+                    <div class="gift-emoji">💌</div>
+                    <svg class="gift-icon" viewBox="0 0 80 80">
+                        <rect x="20" y="20" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M25,30 L55,30" stroke="currentColor" stroke-width="2"/>
+                        <path d="M25,40 L45,40" stroke="currentColor" stroke-width="2"/>
+                        <path d="M25,50 L35,50" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <p class="gift-label">Letter</p>
+                    <p style="color: #ff6b9d; font-size: 0.9rem; margin-top: 5px;">and words of hope</p>
+                </div>
+                
+                <div class="gift-card" onclick="showPresent()">
+                    <div class="gift-emoji">🎁</div>
+                    <svg class="gift-icon" viewBox="0 0 80 80">
+                        <rect x="20" y="20" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M20,20 L40,40 L60,20" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M40,20 L40,60" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="40" cy="40" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <p class="gift-label">Special Gift</p>
+                    <p style="color: #ff6b9d; font-size: 0.9rem; margin-top: 5px;">Just For You</p>
+                </div>
+            </div>
+            
+            <button onclick="goToPage('welcomePage')" class="back-btn">🏠 Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Song Page -->
+    <div id="songPage" class="container page">
+        <div class="song-page">
+            <div class="page-header">
+                <div class="ornament">🎶</div>
+                <div class="ornament">🎶</div>
+            </div>
+            
+            <h2 class="section-title">This Song for You 🎵</h2>
+            <p style="color: #ff6b9d; margin-bottom: 25px; font-size: 1.2rem;">Hope You like it!</p>
+            
+            <div class="music-player">
+                <!-- Vinyl Record -->
+                <div class="vinyl-container">
+                    <div class="vinyl" id="vinyl"></div>
+                    <div class="vinyl-label">🎵</div>
+                </div>
+                
+                <!-- Hidden Audio Element - GANTI URL AUDIO DI SINI -->
+                <audio id="audioPlayer" preload="auto">
+                    <source src="Music/hbd.webm" type="audio/mpeg">
+                </audio>
+
+                <!-- Play/Pause Button -->
+                <button class="play-btn" id="playBtn" onclick="togglePlay()">
+                    <span id="playIcon">▶</span>
+                </button>
+
+                <!-- Player Status -->
+                <div class="player-status" id="playerStatus">
+                    Press the button to play music
+                </div>
+            </div>
+            
+            <button onclick="goToPage('giftsPage')" class="back-btn">🔙 Back to Gifts</button>
+        </div>
+    </div>
+
+    <!-- Letter Page -->
+    <div id="letterPage" class="container page">
+        <div class="letter-page" style="background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);">
+            <div class="page-header">
+                <div class="ornament" style="color: white;">💝</div>
+                <div class="ornament" style="color: white;">💝</div>
+            </div>
+            
+            <div class="letter-container">
+                <div class="letter-text">
+                    <p class="letter-bold">Happy birthday, Nemensia Mota,</p>
+                    <p>Happy birthday, Nemensia Mota 🌸</p>
+                    <p>on this day that God has given you, may your life always be filled with peace, strength, and happiness that comes from Him, may your every step be guided by God's love, your every tiredness ends with new hope, and every prayer you keep in your heart is answered right on time, as God's word says: "For I know the plans I have for you, plans for peace and not for chance, to give your heart a future filled with hope" (Jeremiah 29:11), and may you always know that your life is precious, your smile is meaningful, and God always accompanies your every journey today, tomorrow, and forever. Amen.</p>
+                    <p class="letter-bold">May this year bring you:</p>
+                    <p>💖 Endless joy and laughter<br>
+                       ✨ Dreams that come true<br>
+                       🌟 Adventures that excite you<br>
+                       🙏 God bless all your plans</p>
+                    <p class="letter-bold">Forever and always yours,</p>
+                    <div class="letter-signature">enjoy your day</div>
+                </div>
+            </div>
+            
+            <button onclick="goToPage('giftsPage')" class="back-btn" style="background: white; color: #ff1493; margin-top: 30px;">🔙 Back to Gifts</button>
+        </div>
+    </div>
+
+    <!-- Present Page -->
+    <div id="presentPage" class="container page">
+        <div class="present-page">
+            <div class="page-header">
+                <div class="ornament">🎊</div>
+                <div class="ornament">🎊</div>
+            </div>
+            
+            <h2 class="section-title">YThe Gift for You! 🎁</h2>
+            <p style="color: #ff6b9d; margin-bottom: 25px; font-size: 1.2rem;">Are you ready to see what's inside?</p>
+            
+            <div class="present-box">
+                <div class="box" id="giftBox">
+                    <div class="box-bottom">
+                        <div style="font-size: 50px; animation: bounce 2s infinite;">🎁</div>
+                    </div>
+                    <div class="box-top">
+                        <div class="gift-inside">💖✨</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="open-gift-btn" onclick="openGift()">🎀 Open Your Gift! 🎀</button>
+            
+            <div id="surpriseText" class="surprise-text">
+                <p style="margin-bottom: 15px;">🎉 SURPRISE! 🎉</p>
+                <p style="font-size: 1.4rem;">May in your new age, you always be given health, peace, and easy steps in every plan of your life.<br>sorry this is just a flower emoji, hope you like it 😊</p>
+                <p style="margin-top: 20px; font-size: 1.3rem;">Happy Birthday</p>
+            </div>
+            
+            <button onclick="goToPage('welcomePage')" class="back-btn">🏠 Back to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
